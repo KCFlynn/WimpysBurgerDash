@@ -171,7 +171,7 @@ Crafty.c('Village', {
 		Crafty.audio.play('laf');
 		Crafty.trigger('VillageVisited', this);
 	}
-});
+})
     /*var hitText = Crafty.e('2D, Text')
         .attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() });
         hitText.text('Hit:' + hitCounter);
@@ -183,7 +183,7 @@ Crafty.c('Village', {
         var hitCounter = 0;
         var hitText = Crafty.e('2D, Canvas, Text')
         .attr({ x: 620, y: 50, w: Game.width() });
-        hitText.text('Hits:' + hitCounter);
+        //hitText.text('Hits:' + hitCounter);
         hitText.textFont({ size: '30px', weight: 'bold' })
     
       var randomx = Math.floor((Math.random() * Game.map_grid.tile.width) + 80);

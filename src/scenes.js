@@ -14,7 +14,7 @@ Crafty.scene('Game', function() {
 	// Player character, placed at 5, 5 on our grid
 	this.player = Crafty.e('PlayerCharacter').at(1, 13);
 	this.occupied[this.player.at().x][this.player.at().y] = true;
-    
+
      Crafty.bind("EnterFrame", function(){
         if (Crafty.frame() % 8 == 0) {
             drop();
@@ -53,7 +53,7 @@ Crafty.scene('Game', function() {
 	}
 
 	// Play a ringing sound to indicate the start of the journey
-	sleep(1000);
+	//sleep(1000);
 	Crafty.audio.play('tuesday');
 	//Crafty.audio.play('popeye');
 	

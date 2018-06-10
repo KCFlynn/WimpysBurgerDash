@@ -37,7 +37,7 @@ Crafty.scene('Loading', function(){
 	// Draw some text for the player to see in case the file
 	//  takes a noticeable amount of time to load
 	Crafty.e('2D, DOM, Text')
-		.text('Welcome Wimpys Burger Dash you need to eat all burgers before getting hit 5 times by bananas')
+		.text('Welcome to Wimpys Burger Dash you need to eat all burgers before getting hit 5 times by bananas')
 		.attr({ x: 29, y: Game.height()/2 - 50, w: Game.width() })
 		.textFont($text_css);
 
