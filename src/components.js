@@ -172,15 +172,20 @@ Crafty.c('Village', {
 		Crafty.trigger('VillageVisited', this);
 	}
 });
-    var hitText = Crafty.e('2D, Canvas, Text')
+    /*var hitText = Crafty.e('2D, Text')
         .attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() });
         hitText.text('Hit:' + hitCounter);
         hitText.textFont({ size: '30px', weight: 'bold' }
-    );
+    );*/
 
    function drop()
     {
     var hitCounter = 0;
+            var hitText = Crafty.e('2D, Text')
+        .attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() });
+        hitText.text('Hit:' + hitCounter);
+        hitText.textFont({ size: '30px', weight: 'bold' }
+    );
       var randomx = Math.floor((Math.random() * Game.map_grid.tile.width) + 80);
         Crafty.e('Drop, 2D, Canvas, Solid, Gravity, Collision, banana')
             .attr({x: randomx, y: 0, w: 16, h: 16})
@@ -188,11 +193,12 @@ Crafty.c('Village', {
             .onHit('Actor', function(){
                 this.destroy();
                 hitCounter++;
-                //hitText.text("Hit: " + hitCounter);
+                hitText.text("Hit: " + hitCounter);
     
                 if (hitCounter == 5)
                 {
-                  wimpy.x = 20;
+                  wimpy.at(1, 13);
+	this.occupied[this.player.at().x][this.player.at().y] = true;
                   hitCounter = 0;
                   hitText.text("Hit: " + hitCounter);
                 }
