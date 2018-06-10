@@ -38,7 +38,8 @@ Crafty.c('Border', {
 // A Bush is just an Actor with a certain sprite
 Crafty.c('Banana', {
 	init: function() {
-		this.requires('Actor, Solid, banana');
+		this.requires('Actor, Solid, banana')
+        drop();
         
 	},
 });
