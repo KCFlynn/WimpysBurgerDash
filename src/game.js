@@ -32,6 +32,7 @@ Game = {
 	}
 };
 
+
 $text_css = { 'size': '24px', 'family': 'Arial', 'color': 'red', 'text-align': 'center' };
 
 function sleep(milliseconds) {
