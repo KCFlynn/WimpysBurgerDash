@@ -54,7 +54,7 @@ Crafty.scene('Game', function() {
 
 	// Play a ringing sound to indicate the start of the journey
 	sleep(3000);
-	
+	Crafty.audio.play('tuesday');
 	//Crafty.audio.play('popeye');
 	
 
