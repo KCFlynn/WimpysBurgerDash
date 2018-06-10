@@ -58,22 +58,16 @@ Crafty.c('PlayerCharacter', {
             .gravity('Floor')
             .jumper(440,['UP_ARROW', 'W'])
 			.onHit('Village', this.visitVillage)
-            .bind("EnterFrame", function(){
-                if (this.x == Game.width)  
+            /*.bind("EnterFrame", function(){
+                if (this.x == Game.map_grid.tile.width)  
                 {
                     Crafty.pause();
                     Crafty.e('2D, DOM, Text')
-                        .attr({x:Game.width/2, y:Game.height/2})
+                        .attr({x:Game.map_grid.tile.width/2, y:Game.map_grid.tile.height/2})
                         .text("You Completed Stage One!")
                         .textFont({size:'40px', weight:'bold'});
                 }
-            })
-           .bind("EnterFrame", function(){
-        if (Crafty.frame() % 8 == 0) {
-            drop();
-        }
-    })
-        
+            })*/
 
       wimpy.reel("walking", 1000, [
         [0, 1],
@@ -178,17 +172,23 @@ Crafty.c('Village', {
 		Crafty.trigger('VillageVisited', this);
 	}
 });
+    var hitText = Crafty.e('2D, Canvas, Text')
+        .attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() });
+        hitText.text('Hit:' + hitCounter);
+        hitText.textFont({ size: '30px', weight: 'bold' }
+    );
+
    function drop()
     {
-        var hiyCounter = 0;
-      var randomx = Math.floor((Math.random() * Game.width) + 80);
+    var hitCounter = 0;
+      var randomx = Math.floor((Math.random() * Game.map_grid.tile.width) + 80);
         Crafty.e('Drop, 2D, Canvas, Solid, Gravity, Collision, banana')
             .attr({x: randomx, y: 0, w: 16, h: 16})
             .gravity(.1)
             .onHit('Actor', function(){
                 this.destroy();
                 hitCounter++;
-                hitText.text("Hit: " + hitCounter);
+                //hitText.text("Hit: " + hitCounter);
     
                 if (hitCounter == 5)
                 {
@@ -202,14 +202,10 @@ Crafty.c('Village', {
             })
             
             .bind("EnterFrame", function() {
-                if (this.y > Game.height)
+                if (this.y > Game.map_grid.tile.height)
                   this.destroy();
             });
     };
-    
-        var hitText = Crafty.e('2D, Canvas, Text')
-        .attr({x: screenWidth - 100, y: 30});
-        hitText.text('Hit:' + hitCounter);
-        hitText.textFont({ size: '30px', weight: 'bold' }
-    );
+  
+  
  

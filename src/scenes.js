@@ -7,7 +7,7 @@ Crafty.scene('Game', function() {
 	for (var i = 0; i < Game.map_grid.width; i++) {
 		this.occupied[i] = new Array(Game.map_grid.height);
 		for (var y = 0; y < Game.map_grid.height; y++) {
-			this.occupied[i][y] = false;
+			this.occupied[i][y] = false;          
 		}
 	}
 
@@ -15,6 +15,12 @@ Crafty.scene('Game', function() {
 	this.player = Crafty.e('PlayerCharacter').at(1, 13);
 	this.occupied[this.player.at().x][this.player.at().y] = true;
 
+     Crafty.bind("EnterFrame", function(){
+        if (Crafty.frame() % 8 == 0) {
+            drop();
+        }
+    });
+    
 	// Place a tree at every edge square on our grid of 16x16 tiles
 	for (var x = 0; x < Game.map_grid.width; x++) {
 		for (var y = 0; y < Game.map_grid.height; y++) {
@@ -49,7 +55,7 @@ Crafty.scene('Game', function() {
 	// Play a ringing sound to indicate the start of the journey
 	sleep(1000);
 	Crafty.audio.play('tuesday');
-	Crafty.audio.play('popeye');
+	//Crafty.audio.play('popeye');
 	
 
 	// Show the victory screen once all villages are visisted

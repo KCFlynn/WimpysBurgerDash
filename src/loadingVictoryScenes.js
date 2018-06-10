@@ -6,16 +6,17 @@ Crafty.scene('Victory', function() {
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.text('Wimpy You Ate All The Burgers!')
-		.attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
+		.attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() })
 		.textFont($text_css);
 
 	// Give'em a round of applause!
 	Crafty.audio.play('popeye');
 
+
 	// After a short delay, watch for the player to press a key, then restart
 	// the game when a key is pressed
 	var delay = true;
-	setTimeout(function() { delay = false; }, 5000);
+	setTimeout(function() { delay = false; }, 1000);
 	this.restart_game = function() {
 		if (!delay) {
 			Crafty.scene('Game');
@@ -36,8 +37,8 @@ Crafty.scene('Loading', function(){
 	// Draw some text for the player to see in case the file
 	//  takes a noticeable amount of time to load
 	Crafty.e('2D, DOM, Text')
-		.text('Loading; please wait...')
-		.attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
+		.text('Welcome Wimpys Burger Dash you need to eat all burgers before getting hit 5 times by bananas')
+		.attr({ x: 2, y: Game.height()/2 - 50, w: Game.width() })
 		.textFont($text_css);
 
 	// Load our sound files for later use  (can also load sprite map images)
