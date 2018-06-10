@@ -38,10 +38,11 @@ Crafty.c('Border', {
 // A Bush is just an Actor with a certain sprite
 Crafty.c('Banana', {
 	init: function() {
-		this.requires('Actor, Solid, banana');
+		this.requires('Actor, Solid, banana, Grid, Canvas');
         
 	},
 });
+ Crafty.sprite("assets/banana.png", {banana:[16,16,16,16]});
 
 // A Rock is just an Actor with a certain sprite
 Crafty.c('Rock', {
@@ -187,7 +188,7 @@ Crafty.c('Village', {
         hitText.textFont({ size: '30px', weight: 'bold' }
     );
       var randomx = Math.floor((Math.random() * Game.map_grid.tile.width) + 80);
-        Crafty.e('Drop, 2D, Canvas, Solid, Gravity, Collision, banana')
+        Crafty.e('Drop, 2D, Solid, Gravity, Collision, banana')
             .attr({x: randomx, y: 0, w: 16, h: 16})
             .gravity(.1)
             .onHit('Actor', function(){
