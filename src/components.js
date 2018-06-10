@@ -39,6 +39,7 @@ Crafty.c('Border', {
 Crafty.c('Banana', {
 	init: function() {
 		this.requires('Actor, Solid, banana');
+        
 	},
 });
 
@@ -52,15 +53,43 @@ Crafty.c('Rock', {
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
 	init: function() {
-		this.requires('Actor, Twoway, Collision, spr_player, SpriteAnimation, Gravity, Jumper')
+		var wimpy = this.requires('Actor, Twoway, Collision, spr_player, SpriteAnimation, Gravity, Jumper')
 			.twoway(100)       
             .gravity('Floor')
             .jumper(440,['UP_ARROW', 'W'])
-			.onHit('Village', this.visitVillage)    
+			.onHit('Village', this.visitVillage)
+            .bind("EnterFrame", function(){
+                if (this.x == Game.width)  
+                {
+                    Crafty.pause();
+                    Crafty.e('2D, DOM, Text')
+                        .attr({x:Game.width/2, y:Game.height/2})
+                        .text("You Completed Stage One!")
+                        .textFont({size:'40px', weight:'bold'});
+                }
+            })
+           .bind("EnterFrame", function(){
+        if (Crafty.frame() % 8 == 0) {
+            drop();
+        }
+    })
+        
+
+      wimpy.reel("walking", 1000, [
+        [0, 1],
+        [1, 1],
+        [2, 1],
+        [3, 1],
+        [4, 1],
+        [5, 1]
+      ]);
+      wimpy.animate("walking", -1);
+        
     Crafty.e('Floor, 2D, Canvas, Color, Solid')
         .attr({x: 5, y: 230, w: 500, h: 10})
         .color('rgb(100,75,100)');
         },
+    
     
 			// this next method stops the playe if it hits a "Solid"
 			//AND moves it back so that it is outside the solid it hit
@@ -122,14 +151,12 @@ Crafty.c('PlayerCharacter', {
                         .text("You Completed Stage One!")
                         .textFont({size:'40px', weight:'bold'});
                 }
-            }
-        );
+            }*/
+
+
+    
+
    
-      .bind("EnterFrame", function(){
-        if (Crafty.frame() % 8 == 0) {
-            //drop();
-        }
-    });*/
 	// Respond to this player visiting a village
 	visitVillage: function(data) {
 		villlage = data[0].obj;
@@ -151,3 +178,38 @@ Crafty.c('Village', {
 		Crafty.trigger('VillageVisited', this);
 	}
 });
+   function drop()
+    {
+        var hiyCounter = 0;
+      var randomx = Math.floor((Math.random() * Game.width) + 80);
+        Crafty.e('Drop, 2D, Canvas, Solid, Gravity, Collision, banana')
+            .attr({x: randomx, y: 0, w: 16, h: 16})
+            .gravity(.1)
+            .onHit('Actor', function(){
+                this.destroy();
+                hitCounter++;
+                hitText.text("Hit: " + hitCounter);
+    
+                if (hitCounter == 5)
+                {
+                  wimpy.x = 20;
+                  hitCounter = 0;
+                  hitText.text("Hit: " + hitCounter);
+                }
+            })
+            .onHit('Floor', function(){
+                this.destroy();
+            })
+            
+            .bind("EnterFrame", function() {
+                if (this.y > Game.height)
+                  this.destroy();
+            });
+    };
+    
+        var hitText = Crafty.e('2D, Canvas, Text')
+        .attr({x: screenWidth - 100, y: 30});
+        hitText.text('Hit:' + hitCounter);
+        hitText.textFont({ size: '30px', weight: 'bold' }
+    );
+ 
