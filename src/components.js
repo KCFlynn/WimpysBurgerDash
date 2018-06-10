@@ -172,11 +172,16 @@ Crafty.c('Village', {
 		Crafty.trigger('VillageVisited', this);
 	}
 });
-    var hitText = Crafty.e('2D, Canvas, Text')
-        .attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() });
+
+
+    var hitText = Crafty.e('2D, DOM, Text')
+        .attr({ x: 20,
+                y: Game.height()/2 - 24,
+                w: Game.width() });
+
         hitText.text('Hit:' + hitCounter);
-        hitText.textFont({ size: '30px', weight: 'bold' }
-    );
+
+        hitText.textFont({ size: '30px', weight: 'bold' });
 
    function drop()
     {
