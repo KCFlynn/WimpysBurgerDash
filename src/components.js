@@ -38,11 +38,10 @@ Crafty.c('Border', {
 // A Bush is just an Actor with a certain sprite
 Crafty.c('Banana', {
 	init: function() {
-		this.requires('Actor, Solid, banana, Grid, Canvas');
+		this.requires('Actor, Solid, banana');
         
 	},
 });
- Crafty.sprite("assets/banana.png", {banana:[16,16,16,16]});
 
 // A Rock is just an Actor with a certain sprite
 Crafty.c('Rock', {
@@ -181,27 +180,27 @@ Crafty.c('Village', {
 
    function drop()
     {
-    var hitCounter = 0;
-            var hitText = Crafty.e('2D, Text')
-        .attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() });
-        hitText.text('Hit:' + hitCounter);
-        hitText.textFont({ size: '30px', weight: 'bold' }
-    );
+        var hitCounter = 0;
+        var hitText = Crafty.e('2D, Canvas, Text')
+        .attr({ x: 620, y: 50, w: Game.width() });
+        hitText.text('Hits:' + hitCounter);
+        hitText.textFont({ size: '30px', weight: 'bold' })
+    
       var randomx = Math.floor((Math.random() * Game.map_grid.tile.width) + 80);
-        Crafty.e('Drop, 2D, Solid, Gravity, Collision, banana')
+        Crafty.e('Drop, 2D, Solid, Gravity, Collision, banana, Canvas')
             .attr({x: randomx, y: 0, w: 16, h: 16})
             .gravity(.1)
             .onHit('Actor', function(){
                 this.destroy();
                 hitCounter++;
-                hitText.text("Hit: " + hitCounter);
+                hitText.text("Hits: " + hitCounter);
     
                 if (hitCounter == 5)
                 {
                   wimpy.at(1, 13);
-	this.occupied[this.player.at().x][this.player.at().y] = true;
+	              this.occupied[this.player.at().x][this.player.at().y] = true;
                   hitCounter = 0;
-                  hitText.text("Hit: " + hitCounter);
+                  hitText.text("Hits: " + hitCounter);
                 }
             })
             .onHit('Floor', function(){
@@ -212,6 +211,7 @@ Crafty.c('Village', {
                 if (this.y > Game.map_grid.tile.height)
                   this.destroy();
             });
+        
     };
   
   
