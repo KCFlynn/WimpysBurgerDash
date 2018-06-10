@@ -56,7 +56,7 @@ Crafty.c('PlayerCharacter', {
 		var wimpy = this.requires('Actor, Twoway, Collision, spr_player, SpriteAnimation, Gravity, Jumper')
 			.twoway(100)       
             .gravity('Floor')
-            .jumper(440,['UP_ARROW', 'W'])
+            .jumper(650,['UP_ARROW', 'W'])
 			.onHit('Village', this.visitVillage)
             /*.bind("EnterFrame", function(){
                 if (this.x == Game.map_grid.tile.width)  
@@ -80,7 +80,7 @@ Crafty.c('PlayerCharacter', {
       wimpy.animate("walking", -1);
         
     Crafty.e('Floor, 2D, Canvas, Color, Solid')
-        .attr({x: 5, y: 230, w: 500, h: 10})
+        .attr({x: 5, y: 490, w: 750, h: 10})
         .color('rgb(100,75,100)');
         },
     

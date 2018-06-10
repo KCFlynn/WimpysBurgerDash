@@ -6,7 +6,7 @@ Crafty.scene('Victory', function() {
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.text('Wimpy You Ate All The Burgers!')
-		.attr({ x: 20, y: Game.height()/2 - 24, w: Game.width() })
+		.attr({ x: 210, y: Game.height()/2 - 24, w: Game.width() })
 		.textFont($text_css);
 
 	// Give'em a round of applause!
@@ -38,7 +38,7 @@ Crafty.scene('Loading', function(){
 	//  takes a noticeable amount of time to load
 	Crafty.e('2D, DOM, Text')
 		.text('Welcome Wimpys Burger Dash you need to eat all burgers before getting hit 5 times by bananas')
-		.attr({ x: 2, y: Game.height()/2 - 50, w: Game.width() })
+		.attr({ x: 29, y: Game.height()/2 - 50, w: Game.width() })
 		.textFont($text_css);
 
 	// Load our sound files for later use  (can also load sprite map images)
