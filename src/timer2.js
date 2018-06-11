@@ -1,4 +1,4 @@
-var t = 90;
+var t = 60;
 
 $(document).ready(function(){
     var sTime = setInterval(function(){
