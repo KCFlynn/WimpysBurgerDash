@@ -1,6 +1,6 @@
 // The Grid component allows an element to be located
 //  on a grid of tiles
-Crafty.c('Grid', {
+Crafty.c('Grid1', {
 	init: function() {
 		this.attr({
 			w: Game.map_grid.tile.width,
@@ -23,7 +23,7 @@ Crafty.c('Grid', {
 //  via our logical coordinate grid
 Crafty.c('Actor', {
 	init: function() {
-		this.requires('2D, Canvas, Grid');
+		this.requires('2D, Canvas, Grid1');
 	},
 });
 
