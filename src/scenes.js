@@ -14,12 +14,8 @@ Crafty.scene('Game', function() {
 	// Player character, placed at 5, 5 on our grid
 	this.player = Crafty.e('PlayerCharacter').at(1, 13);
 	this.occupied[this.player.at().x][this.player.at().y] = true;
-     
-     Crafty.bind("EnterFrame", function(){
-        if (Crafty.frame() % 8 == 0) {
-            drop();
-        }
-    });
+
+    
     
 	// Place a tree at every edge square on our grid of 16x16 tiles
 	for (var x = 0; x < Game.map_grid.width; x++) {
@@ -30,12 +26,12 @@ Crafty.scene('Game', function() {
 				// Place a tree entity at the current tile
 				Crafty.e('Border').at(x, y)
 				this.occupied[x][y] = true;
-			} else if (Math.random() < 0.1 && !this.occupied[x][y]) {
+			} /*else if (Math.random() < 0.1 && !this.occupied[x][y]) {
 				// Place a bush or rock entity at the current tile
-				var bush_or_rock = (Math.random() > 0.4) ? 'Banana' : 'Rock'
+				var bush_or_rock = (Math.random() > 0.4) 'Banana' : 'Rock'
 				Crafty.e(bush_or_rock).at(x, y)
 				this.occupied[x][y] = true;
-			}
+			}*/
             
 		}
 	}
@@ -53,9 +49,9 @@ Crafty.scene('Game', function() {
 	}
 
 	// Play a ringing sound to indicate the start of the journey
-	sleep(3000);
+	sleep(1000);
 	Crafty.audio.play('tuesday');
-	Crafty.audio.play('tuesday');
+	//Crafty.audio.play('popeye');
 	
 
 	// Show the victory screen once all villages are visisted

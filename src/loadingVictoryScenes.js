@@ -36,10 +36,10 @@ Crafty.scene('Victory', function() {
 Crafty.scene('Loading', function(){
 	// Draw some text for the player to see in case the file
 	//  takes a noticeable amount of time to load
-    Crafty.audio.play('tuesday');
+    
 	Crafty.e('2D, DOM, Text')
 		.text('Welcome to Wimpys Burger Dash you need to eat all burgers before getting hit 5 times by bananas')
-		.attr({ x: 29, y: Game.height()/2 - 50, w: Game.width() })
+		.attr({ x: 20, y: Game.height()/2 - 50, w: Game.width() })
 		.textFont($text_css);
 
 	// Load our sound files for later use  (can also load sprite map images)
@@ -73,7 +73,7 @@ Crafty.scene('Loading', function(){
             burger: [0, 0]
         })
          Crafty.sprite(8, 'assets/banana.png', {
-            banana: [0, 0]
+            banana: [0, 2]
         })
 
 		// Define the PC's sprite to be the first sprite in the third row of the
