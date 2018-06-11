@@ -5,7 +5,7 @@
 Crafty.scene('Victory', function() {
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
-		.text('You won!')
+		.text('You won! Press the down arrow to get to the next game intro!')
 		.attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
 		.textFont($text_css);
 
@@ -18,7 +18,7 @@ Crafty.scene('Victory', function() {
 	setTimeout(function() { delay = false; }, 5000);
 	this.restart_game = function() {
 		if (!delay) {
-			Crafty.scene('Game');
+			Crafty.scene('Loading2');
 		}
 	};
 	Crafty.bind('KeyDown', this.restart_game);

@@ -33,7 +33,7 @@ Crafty.scene('Victory', function() {
 // Loading scene
 // -------------
 // Handles the loading of binary assets such as images and audio files
-Crafty.scene('Loading', function(){
+Crafty.scene('Loading2', function(){
 	// Draw some text for the player to see in case the file
 	//  takes a noticeable amount of time to load
     
@@ -83,6 +83,8 @@ Crafty.scene('Loading', function(){
 		}, 0, 2);
   
 		// Now that our sprites are ready to draw, start the game
-		Crafty.scene('Game');
+		$("#playButton").click(function(){
+            Crafty.scene('Game2');
+        });
 	});
 });
