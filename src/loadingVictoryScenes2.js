@@ -63,7 +63,7 @@ Crafty.scene('Loading', function(){
 	// Draw some text for the player to see in case the file
 	//  takes a noticeable amount of time to load
 	Crafty.e('2D, DOM, Text')
-		.text('Loading; please wait...')
+		.text('Welcome to Sushi Supremo! Gather as many ingredients as you can to make sushi plates and turn them in at the table to earn points. 100 points wins you the game.')
 		.attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
 		.textFont($text_css);
 
@@ -134,6 +134,10 @@ Crafty.scene('Loading', function(){
 
 		
 		// Now that our sprites are ready to draw, start the game
-		Crafty.scene('Game');
+        
+        $("#playButton").click(function(){
+            Crafty.scene('Game');
+        });
+        
 	});
 });
