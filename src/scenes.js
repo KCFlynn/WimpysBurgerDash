@@ -14,7 +14,11 @@ Crafty.scene('Game', function() {
 	// Player character, placed at 5, 5 on our grid
 	this.player = Crafty.e('PlayerCharacter').at(1, 13);
 	this.occupied[this.player.at().x][this.player.at().y] = true;
-
+     Crafty.bind("EnterFrame", function(){
+        if (Crafty.frame() % 8 == 0) {
+            drop();
+        }
+    });
     
     
 	// Place a tree at every edge square on our grid of 16x16 tiles

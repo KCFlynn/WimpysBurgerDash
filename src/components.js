@@ -125,6 +125,5 @@ function drop()
                 if (this.y > Game.map_grid.tile.height)
                   this.destroy();
             })
-        
     };
   
