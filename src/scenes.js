@@ -1,7 +1,7 @@
 // Game scene
 // -------------
 // Runs the core gameplay loop
-Crafty.scene('Game', function() {
+Crafty.scene('Game2', function() {
 	// A 2D array to keep track of all occupied tiles
 	this.occupied = new Array(Game.map_grid.width);
 	for (var i = 0; i < Game.map_grid.width; i++) {
