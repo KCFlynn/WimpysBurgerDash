@@ -49,7 +49,7 @@ Crafty.c('Rock', {
 });
 
 // This is the player-controlled character
-Crafty.c('PlayerCharacter', {
+Crafty.c('PlayerCharacter1', {
 	init: function() {
 		var wimpy = this.requires('Actor, Twoway, Collision, spr_player, SpriteAnimation, Gravity, Jumper')
 			.twoway(100)       
