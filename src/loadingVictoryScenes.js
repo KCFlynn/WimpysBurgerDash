@@ -2,7 +2,7 @@
 // Victory scene
 // -------------
 // Tells the player when they've won and lets them start a new game
-Crafty.scene('Victory', function() {
+Crafty.scene('Victory2', function() {
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.text('Wimpy You Ate All The Burgers!')
