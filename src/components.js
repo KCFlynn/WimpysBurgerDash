@@ -54,7 +54,7 @@ Crafty.c('PlayerCharacter1', {
 		var wimpy = this.requires('Actor, Twoway, Collision, spr_player, SpriteAnimation, Gravity, Jumper')
 			.twoway(100)       
             .gravity('Floor')
-            .jumper(300,['UP_ARROW', 'W'])
+            .jumper(420,['UP_ARROW', 'W'])
 			.onHit('Village', this.visitVillage)
 
       wimpy.reel("walking", 1000, [
