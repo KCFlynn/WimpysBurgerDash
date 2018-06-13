@@ -2,7 +2,7 @@
 // Victory scene
 // -------------
 // Tells the player when they've won and lets them start a new game
-Crafty.scene('Victory', function() {
+Crafty.scene('Victory2', function() {
 	// Display some text in celebration of the victory
 	Crafty.e('2D, DOM, Text')
 		.text('Wimpy You Ate All The Burgers!')
@@ -38,7 +38,7 @@ Crafty.scene('Loading2', function(){
 	//  takes a noticeable amount of time to load
     
 	Crafty.e('2D, DOM, Text')
-		.text('Welcome to Wimpys Burger Dash you need to eat all burgers before getting hit 5 times by bananas')
+		.text('Welcome to Wimpys Burger Dash you need to eat all burgers before getting hit 5 times by bananas. Press ready to begin')
 		.attr({ x: 20, y: Game.height()/2 - 50, w: Game.width() })
 		.textFont($text_css);
 
