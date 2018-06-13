@@ -76,6 +76,7 @@ Crafty.c('PlayerCharacter1', {
 	visitVillage: function(data) {
 		villlage = data[0].obj;
 		villlage.visit();
+    
 	}
 });
 
@@ -101,28 +102,13 @@ function drop()
         //hitText.text('Hits:' + hitCounter);
         hitText.textFont({ size: '30px', weight: 'bold' })
     
-      var randomx = Math.floor((Math.random() * Game.map_grid.tile.width) + 80);
-        Crafty.e('Drop, 2D, Solid, Gravity, Collision, banana, Canvas')
-            .attr({x: randomx, y: 0, w: 16, h: 16})
-            .gravity(.1)
+  
             .onHit('Actor', function(){
-                this.destroy();
+                
                 hitCounter++;
                 hitText.text("Hits: " + hitCounter);
     
-                if (hitCounter == 5)
-                {
-                  wimpy.x = 20;
-                  hitCounter = 0;
-                  hitText.text("Hits: " + hitCounter);
-                }
+                
             })
-            .onHit('Floor', function(){
-                this.destroy();
-            })
-            
-            .bind("EnterFrame", function() {
-                if (this.y > Game.map_grid.tile.height)
-                  this.destroy();
-            })
+          
     };
